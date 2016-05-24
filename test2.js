@@ -8,9 +8,9 @@ handlers.sendFriendRequested = function (args)
 	}
 	catch(error)
 	{
-		log.info(error);
+		playerData  = "hi from cloudscript";
 	}
-	return {groupId: messageGroupId, date: playerData.Data};
+	return {groupId: messageGroupId, date: playerData};
 	var dataPayload = {};
 	var keyString = currentPlayerId;
 	dataPayload[keyString] = "nice request";
