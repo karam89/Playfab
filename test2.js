@@ -1,7 +1,15 @@
 handlers.sendFriendRequested = function (args)
 {
 	var messageGroupId = args.toId + "_friendRequests2";
-	var playerData = server.GetUserReadOnlyData({"PlayFabId" : args.toId, "Keys" : ["hasFriendsRequestsSharedGroup"]});
+	var playerData;
+	try
+	{
+		playerData = server.GetUserReadOnlyData({"PlayFabId" : args.toId, "Keys" : ["hasFriendsRequestsSharedGroup"]});
+	}
+	catch(error)
+	{
+		log.info(error);
+	}
 	return {groupId: messageGroupId, date: playerData.Data};
 	var dataPayload = {};
 	var keyString = currentPlayerId;
